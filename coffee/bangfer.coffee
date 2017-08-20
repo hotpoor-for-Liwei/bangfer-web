@@ -18,7 +18,7 @@ bangfer_init = (bangfer_app)->
     html_shop = null
     for app in bangfer_app
         if app == "fix"
-            html_clothes = """
+            html_fix = """
                 <div class="bangfer_app_item">维修</div>
             """
         else if app == "clothes"
@@ -26,23 +26,23 @@ bangfer_init = (bangfer_app)->
                 <div class="bangfer_app_item">洗衣</div>
             """
         else if app == "shoes"
-            html_clothes = """
+            html_shoes = """
                 <div class="bangfer_app_item">洗鞋</div>
             """
         else if app == "package"
-            html_clothes = """
+            html_package = """
                 <div class="bangfer_app_item">代取快递</div>
             """
         else if app == "express"
-            html_clothes = """
+            html_express = """
                 <div class="bangfer_app_item">发快递</div>
             """
         else if app == "helper"
-            html_clothes = """
+            html_helper = """
                 <div class="bangfer_app_item">互助</div>
             """
         else if app == "shop"
-            html_clothes = """
+            html_shop = """
                 <div class="bangfer_app_item">商店</div>
             """
 
@@ -58,6 +58,6 @@ bangfer_init = (bangfer_app)->
     $("#bangfer_app").append html
 
 $ ->
-	bangfer_ws = 1
+    bangfer_ws = 1
     bangfer_init(bangfer_app)
 

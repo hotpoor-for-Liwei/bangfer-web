@@ -28,19 +28,19 @@
     for (i = 0, len = bangfer_app.length; i < len; i++) {
       app = bangfer_app[i];
       if (app === "fix") {
-        html_clothes = "<div class=\"bangfer_app_item\">维修</div>";
+        html_fix = "<div class=\"bangfer_app_item\">维修</div>";
       } else if (app === "clothes") {
         html_clothes = "<div class=\"bangfer_app_item\">洗衣</div>";
       } else if (app === "shoes") {
-        html_clothes = "<div class=\"bangfer_app_item\">洗鞋</div>";
+        html_shoes = "<div class=\"bangfer_app_item\">洗鞋</div>";
       } else if (app === "package") {
-        html_clothes = "<div class=\"bangfer_app_item\">代取快递</div>";
+        html_package = "<div class=\"bangfer_app_item\">代取快递</div>";
       } else if (app === "express") {
-        html_clothes = "<div class=\"bangfer_app_item\">发快递</div>";
+        html_express = "<div class=\"bangfer_app_item\">发快递</div>";
       } else if (app === "helper") {
-        html_clothes = "<div class=\"bangfer_app_item\">互助</div>";
+        html_helper = "<div class=\"bangfer_app_item\">互助</div>";
       } else if (app === "shop") {
-        html_clothes = "<div class=\"bangfer_app_item\">商店</div>";
+        html_shop = "<div class=\"bangfer_app_item\">商店</div>";
       }
     }
     html = html_fix + "\n" + html_clothes + "\n" + html_shoes + "\n" + html_package + "\n" + html_express + "\n" + html_helper + "\n" + html_shop;
@@ -48,7 +48,8 @@
   };
 
   $(function() {
-    return bangfer_ws = 1;
+    bangfer_ws = 1;
+    return bangfer_init(bangfer_app);
   });
 
 }).call(this);
