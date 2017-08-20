@@ -14,6 +14,12 @@
 
   HOTPOOR_CDN_PREFIX_VIDEO = "http://video.hotpoor.org";
 
+  root.bangfer_script = function(js_code) {
+    var js_code_action;
+    js_code_action = (new Date()).getTime() + "_" + parseInt(Math.random() * 100);
+    return $("body").append("<div class=\"js_code\" data-value=\"" + js_code_action + "\">\n    <script>\n        (function() {\n            " + js_code + "\n        });\n        $(\".js_code[value=" + js_code_action + "]\").remove();\n    </script>\n</div>");
+  };
+
   bangfer_init = function(bangfer_app) {
     var app, html, html_clothes, html_express, html_fix, html_helper, html_package, html_shoes, html_shop, i, len;
     $("body").append("<div id=\"bangfer_app\"></div>");

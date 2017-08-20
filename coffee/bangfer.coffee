@@ -4,6 +4,20 @@ bangfer_app = ["fix","clothes","shoes","package","express","helper","shop"]
 HOTPOOR_CDN_PREFIX = "http://image.hotpoor.org"
 HOTPOOR_CDN_PREFIX_AUDIO = "http://audio.hotpoor.org"
 HOTPOOR_CDN_PREFIX_VIDEO = "http://video.hotpoor.org"
+
+root.bangfer_script = (js_code)->
+    js_code_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100);
+    $("body").append """
+    <div class="js_code" data-value="#{js_code_action}">
+        <script>
+            (function() {
+                #{js_code}
+            });
+            $(".js_code[value=#{js_code_action}]").remove();
+        </script>
+    </div>
+    """
+
 bangfer_init = (bangfer_app)->
     $("body").append """
         <div id="bangfer_app"></div>
