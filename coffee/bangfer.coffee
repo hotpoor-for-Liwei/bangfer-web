@@ -18,7 +18,7 @@ bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorTy
     </div>
     """
     $(".js_code[data-value=#{bangfer_print_action}]").fadeIn()
-    bangfer_print_action = setTimeout ()->
+    bangfer_print_action_i = setTimeout ()->
             $(".js_code[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
                 $(".js_code[data-value=#{bangfer_print_action}]").remove()
         ,1000

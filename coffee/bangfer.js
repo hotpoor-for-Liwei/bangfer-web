@@ -19,7 +19,7 @@
   };
 
   bangfer_print = function(title, string, alertColor, colorType0, colorType1, bgColorType) {
-    var bangfer_print_action;
+    var bangfer_print_action, bangfer_print_action_i;
     if (alertColor == null) {
       alertColor = "black";
     }
@@ -35,7 +35,7 @@
     bangfer_print_action = (new Date()).getTime() + "_" + parseInt(Math.random() * 100);
     $("body").append("<div class=\"js_print\" data-value=\"" + bangfer_print_action + "\" style=\"background:" + bgColorType + ";border-left:2px solid " + alertColor + "\">\n    <div style=\"color:" + colorType1 + ";font-size:16px;\">" + title + "</div>\n    <div style=\"color:" + colorType1 + ";font-size:12px;\">" + string + "</div>\n    <div style=\"color:" + colorType1 + "\" class=\"remove_js_print\">x</div>\n</div>");
     $(".js_code[data-value=" + bangfer_print_action + "]").fadeIn();
-    bangfer_print_action = setTimeout(function() {
+    bangfer_print_action_i = setTimeout(function() {
       return $(".js_code[data-value=" + bangfer_print_action + "]").fadeOut(300, function() {
         return $(".js_code[data-value=" + bangfer_print_action + "]").remove();
       });
