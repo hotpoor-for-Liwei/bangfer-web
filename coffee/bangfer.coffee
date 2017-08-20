@@ -17,14 +17,14 @@ bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorTy
         <div style="color:#{colorType1}" class="remove_js_print">x</div>
     </div>
     """
-    $(".js_code[data-value=#{js_code_action}]").fadeIn()
+    $(".js_code[data-value=#{bangfer_print_action}]").fadeIn()
     bangfer_print_action = setTimeout ()->
-            $(".js_code[data-value=#{js_code_action}]").fadeOut 300, ()->
-                $(".js_code[data-value=#{js_code_action}]").remove()
+            $(".js_code[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
+                $(".js_code[data-value=#{bangfer_print_action}]").remove()
         ,1000
     $(".remove_js_print").on "click",(evt)->
         $(this).parent().fadeOut 300, ()->
-            $(".js_code[data-value=#{js_code_action}]").remove()
+            $(".js_code[data-value=#{bangfer_print_action}]").remove()
 root.bangfer_normal_print = (string)->
     bangfer_print("通知", string)
 root.bangfer_success_print = (string)->
