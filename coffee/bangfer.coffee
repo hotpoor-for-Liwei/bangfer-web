@@ -10,10 +10,8 @@ root.bangfer_script = (js_code)->
     $("body").append """
     <div class="js_code" data-value="#{js_code_action}">
         <script>
-            (function() {
-                #{js_code}
-            });
-            $(".js_code[value=#{js_code_action}]").remove();
+            #{js_code}
+            $(".js_code[data-value=#{js_code_action}]").remove();
         </script>
     </div>
     """
