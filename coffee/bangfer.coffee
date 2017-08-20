@@ -57,8 +57,7 @@ bangfer_init = (bangfer_app)->
     """
     $("#bangfer_app").append html
 
-
-
 $ ->
 	bangfer_ws = 1
+    bangfer_init(bangfer_app)
 
