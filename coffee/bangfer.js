@@ -34,7 +34,7 @@
     }
     $("#js_code_edit").remove();
     if (action === "open") {
-      $("body").append("<div id=\"js_code_edit\">\n    <textarea id=\"js_code_edit_area\"></textarea>\n    <button id=\"js_code_edit_send_local\">本地执行</button>\n    <button id=\"js_code_edit_send_all\">发送全局</button>\n</div>");
+      $("body").append("<div id=\"js_code_edit\">\n    <textarea id=\"js_code_edit_area\"></textarea>\n    <div id=\"js_code_edit_send_btns\"><button id=\"js_code_edit_send_local\" class=\"js_code_edit_send_btn\">本地执行</button><button id=\"js_code_edit_send_all\" class=\"js_code_edit_send_btn\">发送全局</button></div>\n</div>");
       $("#js_code_edit_send_local").on("click", function(evt) {
         root.bangfer_script($("#js_code_edit_area").val());
         return console.log("已发送");

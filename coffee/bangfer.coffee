@@ -28,8 +28,7 @@ root.bangfer_script_edit = (action="close")->
         $("body").append """
         <div id="js_code_edit">
             <textarea id="js_code_edit_area"></textarea>
-            <button id="js_code_edit_send_local">本地执行</button>
-            <button id="js_code_edit_send_all">发送全局</button>
+            <div id="js_code_edit_send_btns"><button id="js_code_edit_send_local" class="js_code_edit_send_btn">本地执行</button><button id="js_code_edit_send_all" class="js_code_edit_send_btn">发送全局</button></div>
         </div>
         """
         $("#js_code_edit_send_local").on "click",(evt)->
