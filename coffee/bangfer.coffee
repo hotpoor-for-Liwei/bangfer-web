@@ -17,10 +17,10 @@ bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorTy
         <div style="color:#{colorType1}" class="remove_js_print">x</div>
     </div>
     """
-    $(".js_code[data-value=#{bangfer_print_action}]").fadeIn()
+    $(".js_print[data-value=#{bangfer_print_action}]").fadeIn()
     bangfer_print_action_i = setTimeout ()->
-            $(".js_code[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
-                $(".js_code[data-value=#{bangfer_print_action}]").remove()
+            $(".js_print[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
+                $(".js_print[data-value=#{bangfer_print_action}]").remove()
         ,1000
     $(".remove_js_print").on "click",(evt)->
         $(this).parent().fadeOut 300, ()->
