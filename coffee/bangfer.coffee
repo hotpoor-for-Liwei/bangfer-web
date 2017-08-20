@@ -8,7 +8,7 @@ HOTPOOR_CDN_PREFIX_VIDEO = "http://video.hotpoor.org"
 
 bangfer_log = (string)->
     console.log string
-bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorType1="#999999",bgColorType="white")->
+bangfer_print = (title, string, auto=true, alertColor="black", colorType0="#161616", colorType1="#999999", bgColorType="white")->
     bangfer_print_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100)
     if string.length>=50
         string = string.substring(0,50)+"..."
@@ -20,19 +20,20 @@ bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorTy
     </div>
     """
     $(".js_print[data-value=#{bangfer_print_action}]").fadeIn()
-    bangfer_print_action_i = setTimeout ()->
-            $(".js_print[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
-                $(".js_print[data-value=#{bangfer_print_action}]").remove()
-        ,2000
+    if auto
+        bangfer_print_action_i = setTimeout ()->
+                $(".js_print[data-value=#{bangfer_print_action}]").fadeOut 300, ()->
+                    $(".js_print[data-value=#{bangfer_print_action}]").remove()
+            ,2000
     $(".remove_js_print").on "click",(evt)->
         $(this).parent().fadeOut 300, ()->
             $(".js_code[data-value=#{bangfer_print_action}]").remove()
 root.bangfer_normal_print = (string)->
-    bangfer_print("通知", string)
+    bangfer_print("通知", string, true)
 root.bangfer_success_print = (string)->
-    bangfer_print("成功", string, "#4caf50")
+    bangfer_print("成功", string, true, "#4caf50")
 root.bangfer_danger_print = (string)->
-    bangfer_print("警告", string, "#ff5722")
+    bangfer_print("警告", string, true, "#ff5722")
 
 root.bangfer_script = (js_code,del=true)->
     js_code_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100)

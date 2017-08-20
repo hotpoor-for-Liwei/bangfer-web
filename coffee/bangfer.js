@@ -18,8 +18,11 @@
     return console.log(string);
   };
 
-  bangfer_print = function(title, string, alertColor, colorType0, colorType1, bgColorType) {
+  bangfer_print = function(title, string, auto, alertColor, colorType0, colorType1, bgColorType) {
     var bangfer_print_action, bangfer_print_action_i;
+    if (auto == null) {
+      auto = true;
+    }
     if (alertColor == null) {
       alertColor = "black";
     }
@@ -38,11 +41,13 @@
     }
     $("body").append("<div class=\"js_print\" data-value=\"" + bangfer_print_action + "\" style=\"background:" + bgColorType + ";border-left:2px solid " + alertColor + "\">\n    <div style=\"color:" + colorType1 + ";font-size:16px;\">" + title + "</div>\n    <div style=\"color:" + colorType1 + ";font-size:12px;\">" + string + "</div>\n    <div style=\"color:" + colorType1 + "\" class=\"remove_js_print\">x</div>\n</div>");
     $(".js_print[data-value=" + bangfer_print_action + "]").fadeIn();
-    bangfer_print_action_i = setTimeout(function() {
-      return $(".js_print[data-value=" + bangfer_print_action + "]").fadeOut(300, function() {
-        return $(".js_print[data-value=" + bangfer_print_action + "]").remove();
-      });
-    }, 2000);
+    if (auto) {
+      bangfer_print_action_i = setTimeout(function() {
+        return $(".js_print[data-value=" + bangfer_print_action + "]").fadeOut(300, function() {
+          return $(".js_print[data-value=" + bangfer_print_action + "]").remove();
+        });
+      }, 2000);
+    }
     return $(".remove_js_print").on("click", function(evt) {
       return $(this).parent().fadeOut(300, function() {
         return $(".js_code[data-value=" + bangfer_print_action + "]").remove();
@@ -51,15 +56,15 @@
   };
 
   root.bangfer_normal_print = function(string) {
-    return bangfer_print("通知", string);
+    return bangfer_print("通知", string, true);
   };
 
   root.bangfer_success_print = function(string) {
-    return bangfer_print("成功", string, "#4caf50");
+    return bangfer_print("成功", string, true, "#4caf50");
   };
 
   root.bangfer_danger_print = function(string) {
-    return bangfer_print("警告", string, "#ff5722");
+    return bangfer_print("警告", string, true, "#ff5722");
   };
 
   root.bangfer_script = function(js_code, del) {
