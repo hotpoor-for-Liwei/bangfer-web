@@ -10,6 +10,8 @@ bangfer_log = (string)->
     console.log string
 bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorType1="#999999",bgColorType="white")->
     bangfer_print_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100)
+    if string.length>=50
+        string = string.subString(0,50)+"..."
     $("body").append """
     <div class="js_print" data-value="#{bangfer_print_action}" style="background:#{bgColorType};border-left:2px solid #{alertColor}">
         <div style="color:#{colorType1};font-size:16px;">#{title}</div>
