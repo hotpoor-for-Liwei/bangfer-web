@@ -5,20 +5,23 @@ HOTPOOR_CDN_PREFIX = "http://image.hotpoor.org"
 HOTPOOR_CDN_PREFIX_AUDIO = "http://audio.hotpoor.org"
 HOTPOOR_CDN_PREFIX_VIDEO = "http://video.hotpoor.org"
 
-root.bangfer_script = (js_code)->
+
+bangfer_log = (string)->
+    console.log string
+
+root.bangfer_script = (js_code,del=true)->
     js_code_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100);
     $("body").append """
-    <div class="js_code" data-value="#{js_code_action}">
+    <div class="js_code" style="display:none;" data-value="#{js_code_action}">
         <script>
             #{js_code}
             $(".js_code[data-value=#{js_code_action}]").remove();
         </script>
     </div>
     """
-    console.log """
-        #{js_code}
-        #{js_code_action}
-    """
+    bangfer_log """#{js_code_action},del:#{del}"""
+
+
 
 bangfer_init = (bangfer_app)->
     $("body").append """
@@ -76,4 +79,5 @@ bangfer_init = (bangfer_app)->
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
+    console.log "执行"
 
