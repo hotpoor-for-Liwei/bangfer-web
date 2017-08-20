@@ -39,7 +39,7 @@
       return $(".js_print[data-value=" + bangfer_print_action + "]").fadeOut(300, function() {
         return $(".js_print[data-value=" + bangfer_print_action + "]").remove();
       });
-    }, 1000);
+    }, 2000);
     return $(".remove_js_print").on("click", function(evt) {
       return $(this).parent().fadeOut(300, function() {
         return $(".js_code[data-value=" + bangfer_print_action + "]").remove();
