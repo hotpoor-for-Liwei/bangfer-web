@@ -33,7 +33,7 @@
       bgColorType = "white";
     }
     bangfer_print_action = (new Date()).getTime() + "_" + parseInt(Math.random() * 100);
-    $("body").append("<div class=\"js_print\" data-value=\"" + bangfer_print_action + "\" style=\"background:" + bgColorType + ";color:" + colorType + ";border-left:2px solid " + alertColor + "\">\n    <div style=\"color:" + colorType1 + ";font-size:16px;\">" + title + "</div>\n    <div style=\"color:" + colorType1 + ";font-size:12px;\">" + string + "</div>\n    <div style=\"color:" + colorType1 + "\" class=\"remove_js_print\">x</div>\n</div>");
+    $("body").append("<div class=\"js_print\" data-value=\"" + bangfer_print_action + "\" style=\"background:" + bgColorType + ";border-left:2px solid " + alertColor + "\">\n    <div style=\"color:" + colorType1 + ";font-size:16px;\">" + title + "</div>\n    <div style=\"color:" + colorType1 + ";font-size:12px;\">" + string + "</div>\n    <div style=\"color:" + colorType1 + "\" class=\"remove_js_print\">x</div>\n</div>");
     $(".js_code[data-value=" + js_code_action + "]").fadeIn();
     bangfer_print_action = setTimeout(function() {
       return $(".js_code[data-value=" + js_code_action + "]").fadeOut(300, function() {

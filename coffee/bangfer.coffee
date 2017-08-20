@@ -11,7 +11,7 @@ bangfer_log = (string)->
 bangfer_print = (title, string, alertColor="black",colorType0="#161616", colorType1="#999999",bgColorType="white")->
     bangfer_print_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100)
     $("body").append """
-    <div class="js_print" data-value="#{bangfer_print_action}" style="background:#{bgColorType};color:#{colorType};border-left:2px solid #{alertColor}">
+    <div class="js_print" data-value="#{bangfer_print_action}" style="background:#{bgColorType};border-left:2px solid #{alertColor}">
         <div style="color:#{colorType1};font-size:16px;">#{title}</div>
         <div style="color:#{colorType1};font-size:12px;">#{string}</div>
         <div style="color:#{colorType1}" class="remove_js_print">x</div>
