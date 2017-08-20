@@ -24,7 +24,7 @@
       del = true;
     }
     js_code_action = (new Date()).getTime() + "_" + parseInt(Math.random() * 100);
-    $("body").append("<div class=\"js_code\" style=\"display:none;\" data-value=\"" + js_code_action + "\">\n    <script>\n        " + js_code + "\n        $(\".js_code[data-value=" + js_code_action + "]\").remove();\n    </script>\n</div>");
+    $("body").append("<div class=\"js_code\" style=\"display:none;\" data-value=\"" + js_code_action + "\">\n    <script>\n        (function() {\n            " + js_code + "\n        });\n        if (" + del + "){\n            $(\".js_code[data-value=" + js_code_action + "]\").remove();\n        }\n\n    </script>\n</div>");
     return bangfer_log(js_code_action + ",del:" + del);
   };
 
@@ -63,8 +63,7 @@
 
   $(function() {
     bangfer_ws = 1;
-    bangfer_init(bangfer_app);
-    return console.log("执行");
+    return bangfer_init(bangfer_app);
   });
 
 }).call(this);

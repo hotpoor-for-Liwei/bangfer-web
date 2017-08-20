@@ -14,8 +14,13 @@ root.bangfer_script = (js_code,del=true)->
     $("body").append """
     <div class="js_code" style="display:none;" data-value="#{js_code_action}">
         <script>
-            #{js_code}
-            $(".js_code[data-value=#{js_code_action}]").remove();
+            (function() {
+                #{js_code}
+            });
+            if (#{del}){
+                $(".js_code[data-value=#{js_code_action}]").remove();
+            }
+
         </script>
     </div>
     """
@@ -79,5 +84,4 @@ bangfer_init = (bangfer_app)->
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
-    console.log "执行"
 
