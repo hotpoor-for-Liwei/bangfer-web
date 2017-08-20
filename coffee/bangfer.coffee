@@ -15,6 +15,10 @@ root.bangfer_script = (js_code)->
         </script>
     </div>
     """
+    console.log """
+        #{js_code}
+        #{js_code_action}
+    """
 
 bangfer_init = (bangfer_app)->
     $("body").append """
