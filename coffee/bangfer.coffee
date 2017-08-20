@@ -18,11 +18,25 @@ root.bangfer_script = (js_code,del=true)->
             if (#{del}){
                 $(".js_code[data-value=#{js_code_action}]").remove();
             }
-
         </script>
     </div>
     """
     bangfer_log """#{js_code_action},del:#{del}"""
+root.bangfer_script_edit = (action="close")->
+    $("#js_code_edit").remove();
+    if action == "open"
+        $("body").append """
+        <div id="js_code_edit">
+            <textarea id="js_code_edit_area"></textarea>
+            <button id="js_code_edit_send_local">本地执行</button>
+            <button id="js_code_edit_send_all">发送全局</button>
+        </div>
+        """
+        $("#js_code_edit_send_local").on "click",(evt)->
+            root.bangfer_script $("#js_code_edit_area").val()
+            console.log "已发送"
+        $("#js_code_edit_send_all").on "click",(evt)->
+            console.log "未开启"
 
 
 

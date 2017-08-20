@@ -24,8 +24,25 @@
       del = true;
     }
     js_code_action = (new Date()).getTime() + "_" + parseInt(Math.random() * 100);
-    $("body").append("<div class=\"js_code\" style=\"display:none;\" data-value=\"" + js_code_action + "\">\n    <script>\n        " + js_code + "\n        if (" + del + "){\n            $(\".js_code[data-value=" + js_code_action + "]\").remove();\n        }\n\n    </script>\n</div>");
+    $("body").append("<div class=\"js_code\" style=\"display:none;\" data-value=\"" + js_code_action + "\">\n    <script>\n        " + js_code + "\n        if (" + del + "){\n            $(\".js_code[data-value=" + js_code_action + "]\").remove();\n        }\n    </script>\n</div>");
     return bangfer_log(js_code_action + ",del:" + del);
+  };
+
+  root.bangfer_script_edit = function(action) {
+    if (action == null) {
+      action = "close";
+    }
+    $("#js_code_edit").remove();
+    if (action === "open") {
+      $("body").append("<div id=\"js_code_edit\">\n    <textarea id=\"js_code_edit_area\"></textarea>\n    <button id=\"js_code_edit_send_local\">本地执行</button>\n    <button id=\"js_code_edit_send_all\">发送全局</button>\n</div>");
+      $("#js_code_edit_send_local").on("click", function(evt) {
+        root.bangfer_script($("#js_code_edit_area").val());
+        return console.log("已发送");
+      });
+      return $("#js_code_edit_send_all").on("click", function(evt) {
+        return console.log("未开启");
+      });
+    }
   };
 
   bangfer_init = function(bangfer_app) {
