@@ -23,7 +23,7 @@ root.bangfer_script = (js_code,del=true)->
     """
     bangfer_log """#{js_code_action},del:#{del}"""
 root.bangfer_script_edit = (action="close")->
-    $("#js_code_edit").remove();
+    $("#js_code_edit").remove()
     if action == "open"
         $("body").append """
         <div id="js_code_edit">
