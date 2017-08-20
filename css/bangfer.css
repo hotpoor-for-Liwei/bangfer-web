@@ -1,12 +1,12 @@
 #js_code_edit{
     position: fixed;
     right: 20px;
-    bottom: 20px;
+    bottom: 26px;
     width: 300px;
     height: 280px;
     background: white;
-    border-radius: 6px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.26); 
+    border-radius: 16px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
 }
 #js_code_edit_area{
     width: 90%;
@@ -20,6 +20,20 @@
     border-radius: 10px 10px 4px 4px;
     box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
 }
-#js_code_edit_send_btn{
-    
+.js_code_edit_send_btn {
+    width: 42%;
+    height: 30px;
+    border: 0;
+    margin: 5px 4%;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.16);
+    cursor: pointer;
+}
+#js_code_edit_send_local{
+    background: #03A9F4;
+}
+#js_code_edit_send_all{
+    background: #FF5722;
 }
