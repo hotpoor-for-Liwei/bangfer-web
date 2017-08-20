@@ -67,6 +67,16 @@
     return bangfer_print("警告", string, true, "#ff5722");
   };
 
+  root.bangfer_free_print = function(title, string, auto, alertColor) {
+    if (auto == null) {
+      auto = true;
+    }
+    if (alertColor == null) {
+      alertColor = "black";
+    }
+    return bangfer_print(title, string, auto, alertColor);
+  };
+
   root.bangfer_script = function(js_code, del) {
     var js_code_action;
     if (del == null) {

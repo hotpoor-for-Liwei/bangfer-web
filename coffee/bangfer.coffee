@@ -28,12 +28,15 @@ bangfer_print = (title, string, auto=true, alertColor="black", colorType0="#1616
     $(".remove_js_print").on "click",(evt)->
         $(this).parent().fadeOut 300, ()->
             $(".js_code[data-value=#{bangfer_print_action}]").remove()
+
 root.bangfer_normal_print = (string)->
     bangfer_print("通知", string, true)
 root.bangfer_success_print = (string)->
     bangfer_print("成功", string, true, "#4caf50")
 root.bangfer_danger_print = (string)->
     bangfer_print("警告", string, true, "#ff5722")
+root.bangfer_free_print = (title, string, auto=true,alertColor="black")->
+    bangfer_print(title, string, auto, alertColor)
 
 root.bangfer_script = (js_code,del=true)->
     js_code_action = (new Date()).getTime()+"_"+parseInt(Math.random()*100)
