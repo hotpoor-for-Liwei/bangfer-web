@@ -14,9 +14,7 @@ root.bangfer_script = (js_code,del=true)->
     $("body").append """
     <div class="js_code" style="display:none;" data-value="#{js_code_action}">
         <script>
-            (function() {
-                #{js_code}
-            });
+            #{js_code}
             if (#{del}){
                 $(".js_code[data-value=#{js_code_action}]").remove();
             }
