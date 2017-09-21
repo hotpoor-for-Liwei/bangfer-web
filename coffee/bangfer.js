@@ -231,7 +231,7 @@
     return wx.ready(function() {
       wx.showAllNonBaseMenuItem();
       wx.onMenuShareAppMessage({
-        title: '我在帮范儿预定#{text}，帮帮砍价！',
+        title: "我在帮范儿预定" + text + "，帮帮砍价！",
         desc: '最高￥50~￥5000抵扣，赶快召集小伙伴们来砍价！',
         link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID,
         imgUrl: img,
@@ -245,7 +245,7 @@
         }
       });
       return wx.onMenuShareTimeline({
-        title: '我在帮范儿预定#{text}，帮帮砍价！',
+        title: "我在帮范儿预定" + text + "，帮帮砍价！",
         link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID,
         imgUrl: img,
         success: function() {
