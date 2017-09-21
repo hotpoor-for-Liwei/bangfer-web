@@ -169,9 +169,9 @@ bangfer_init = (bangfer_app)->
             else
                 html = """
                     <div id="iphone_list">
-                        <div class="iphone_select"><button class="select_btn">iPhone 8</button>
-                        <div class="iphone_select"><button class="select_btn">iPhone 8Plus</button>
-                        <div class="iphone_select"><button class="select_btn">iPhone X</button>
+                        <div class="iphone_select"><button class="select_btn">iPhone 8</button></div>
+                        <div class="iphone_select"><button class="select_btn">iPhone 8Plus</button></div>
+                        <div class="iphone_select"><button class="select_btn">iPhone X</button></div>
                     </div>
                     <button class="iphone_pay_50">￥50 支付定金</button>
                 """

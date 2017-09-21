@@ -190,7 +190,7 @@
           }
           html = "<div id=\"iphone_list_lines\">\n" + h_m + "\n</div>";
         } else {
-          html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button>\n</div>\n<button class=\"iphone_pay_50\">￥50 支付定金</button>";
+          html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button></div>\n</div>\n<button class=\"iphone_pay_50\">￥50 支付定金</button>";
         }
         return $("#bangfer_app").append(html);
       },
