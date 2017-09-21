@@ -133,6 +133,7 @@ bangfer_init = (bangfer_app)->
     html = """
     """
     aim_ad_id = getQueryVariable("aim_ad_id")
+    alert(aim_ad_id)
     if not aim_ad_id
         aim_ad_id = USER_ID
     $.ajax

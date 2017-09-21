@@ -156,6 +156,7 @@
     html1 = html_fix + "\n" + html_clothes + "\n" + html_shoes + "\n" + html_package + "\n" + html_express + "\n" + html_helper + "\n" + html_shop;
     html = "    ";
     aim_ad_id = getQueryVariable("aim_ad_id");
+    alert(aim_ad_id);
     if (!aim_ad_id) {
       aim_ad_id = USER_ID;
     }
@@ -188,7 +189,7 @@
             u_time = formatDate(u[3] * 1000);
             h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><span>" + u_name + "</span><span>" + u_time + "</span><p>u_content</p><span>" + u_price + "</span></div>");
           }
-          html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[USER_ID]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[USER_ID]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines\">\n" + h_m + "\n</div>";
+          html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[aim_ad_id]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[aim_ad_id]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines\">\n" + h_m + "\n</div>";
         } else {
           html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button></div>\n</div>\n<div id=\"iphone_pay\"><button class=\"iphone_pay_50\">￥50 支付定金</button></div>\n<div id=\"iphone_pay_info\" style=\"display:none;\">正在提交</div>";
         }
