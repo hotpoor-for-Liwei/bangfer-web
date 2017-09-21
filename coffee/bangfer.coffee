@@ -252,18 +252,28 @@ $("body").on "click",".iphone_pay_50", (evt)->
                 paySign: data["paysign"]
                 success: (res)->
                     $.ajax
-                        url: 'http://www.hotpoor.org/api/comment/submit_data'
-                        type: 'POST'
-                        dataType: 'json'
+                        url: "/api/ad/pay_success"
+                        type: "GET"
+                        dataType: "json"
                         data:
-                            "app": 'hotpoor'
-                            "aim_id": boss_user_id
-                            "user_id": USER_ID
-                            "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_info
-                        success: (data)->
-                            console.log "wx pay info send success"
-                        error: (data)->
-                            console.log "wx pay info send error"
+                            time: parseInt((new Date).getTime()/1000)
+                        success:(data)->
+                            console.log data
+                            $.ajax
+                                url: 'http://www.hotpoor.org/api/comment/submit_data'
+                                type: 'POST'
+                                dataType: 'json'
+                                data:
+                                    "app": 'hotpoor'
+                                    "aim_id": boss_user_id
+                                    "user_id": USER_ID
+                                    "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_info
+                                success: (data)->
+                                    console.log "wx pay info send success"
+                                error: (data)->
+                                    console.log "wx pay info send error"
+                        error:(data)->
+                            console.log "pay_success update error"
                 complete: (res)->
                     console.log "wx pay complete"
               wx.chooseWXPay wxPayData

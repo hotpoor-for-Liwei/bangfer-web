@@ -299,20 +299,34 @@
           paySign: data["paysign"],
           success: function(res) {
             return $.ajax({
-              url: 'http://www.hotpoor.org/api/comment/submit_data',
-              type: 'POST',
-              dataType: 'json',
+              url: "/api/ad/pay_success",
+              type: "GET",
+              dataType: "json",
               data: {
-                "app": 'hotpoor',
-                "aim_id": boss_user_id,
-                "user_id": USER_ID,
-                "content": ("用户昵称:" + USER_NAME + "，手机号:" + aim_ad_members[USER_ID]["tel"] + "，支付成功￥50元，预约手机，型号：") + iphone_info
+                time: parseInt((new Date).getTime() / 1000)
               },
               success: function(data) {
-                return console.log("wx pay info send success");
+                console.log(data);
+                return $.ajax({
+                  url: 'http://www.hotpoor.org/api/comment/submit_data',
+                  type: 'POST',
+                  dataType: 'json',
+                  data: {
+                    "app": 'hotpoor',
+                    "aim_id": boss_user_id,
+                    "user_id": USER_ID,
+                    "content": ("用户昵称:" + USER_NAME + "，手机号:" + aim_ad_members[USER_ID]["tel"] + "，支付成功￥50元，预约手机，型号：") + iphone_info
+                  },
+                  success: function(data) {
+                    return console.log("wx pay info send success");
+                  },
+                  error: function(data) {
+                    return console.log("wx pay info send error");
+                  }
+                });
               },
               error: function(data) {
-                return console.log("wx pay info send error");
+                return console.log("pay_success update error");
               }
             });
           },
