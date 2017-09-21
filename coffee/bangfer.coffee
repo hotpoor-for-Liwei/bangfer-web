@@ -178,7 +178,6 @@ bangfer_init = (bangfer_app)->
             $("#bangfer_app").append html
         "error":(data)->
             console.log data
-
 formatDate = (now) ->
         now_date = new Date(now)
         audio_list_time_now = new Date()
@@ -198,11 +197,11 @@ formatDate = (now) ->
             return  month+"月"+date+"日 "+hour+":"+minute
         return  year+"年"+month+"月"+date+"日 "+hour+":"+minute
 
-root.wx_ready = (img) ->
+root.wx_ready = (img,text="iPhone") ->
     wx.ready ()->
         wx.showAllNonBaseMenuItem()
         wx.onMenuShareAppMessage
-            title:'我在帮范儿预定iPhone，帮帮砍价！',
+            title:'我在帮范儿预定#{text}，帮帮砍价！',
             desc: '最高￥50~￥5000抵扣，赶快召集小伙伴们来砍价！',
             link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id='+USER_ID
             imgUrl: img,
@@ -213,7 +212,7 @@ root.wx_ready = (img) ->
             cancel: ()->
                 console.log "取消分享给好友"
         wx.onMenuShareTimeline
-            title: '我在帮范儿预定iPhone，帮帮砍价！'
+            title: '我在帮范儿预定#{text}，帮帮砍价！'
             link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id='+USER_ID
             imgUrl: img
             success:()->
@@ -223,5 +222,9 @@ root.wx_ready = (img) ->
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
+$("body").on "click", ".select_btn", (evt)->
+    $(".select_btn").removeClass("select_btn_now")
+    $(this).addClass("select_btn_now")
+    root.wx_ready(USER_HEADIMGURL,$(this).text())
 
 
