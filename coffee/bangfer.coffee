@@ -266,7 +266,7 @@ $("body").on "click",".iphone_pay_50", (evt)->
                                 data:
                                     "app": 'hotpoor'
                                     "aim_id": boss_user_id
-                                    "user_id": USER_ID
+                                    "user_id": boss_user_id
                                     "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_info
                                 success: (data)->
                                     console.log "wx pay info send success"
