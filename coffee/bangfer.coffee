@@ -222,9 +222,51 @@ root.wx_ready = (img,text="iPhone") ->
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
+iphone_info = "新iPhone 未选择"
 $("body").on "click", ".select_btn", (evt)->
     $(".select_btn").removeClass("select_btn_now")
     $(this).addClass("select_btn_now")
     root.wx_ready(USER_HEADIMGURL,$(this).text())
-
+    iphone_info = $(this).text()
+$("body").on "click",".iphone_pay_50", (evt)->
+    wx_pay_order_id = ""
+    wx_pay_app = "lovebangfer"
+    wx_pay_price = 1
+    boss_user_id = "f0d75199ce334fdaa2091df00a9e087b"
+    help_user_id = "0cd8429c1da249b6935d7eef72d7fc0b"
+    $.ajax
+        "type":"POST"
+        "url":"/api/wechat_pay/home/order_unifiedorder"
+        "dataType":"json"
+        "data":
+            weixin_app: wx_pay_app
+            price: wx_pay_price
+            order_id: wx_pay_order_id
+            title: "帮范儿预定"
+        success:(data)->
+            wxPayData = 
+                timestamp: data["timestamp"]
+                nonceStr: data["nonce"]
+                package: 'prepay_id=' + data["prepay_id"]
+                signType: 'MD5'
+                paySign: data["paysign"]
+                success: (res)->
+                    $.ajax
+                        url: 'http://www.hotpoor.org/api/comment/submit_data'
+                        type: 'POST'
+                        dataType: 'json'
+                        data:
+                            "app": 'hotpoor'
+                            "aim_id": boss_user_id
+                            "user_id": USER_ID
+                            "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_info
+                        success: (data)->
+                            console.log "wx pay info send success"
+                        error: (data)->
+                            console.log "wx pay info send error"
+                complete: (res)->
+                    console.log "wx pay complete"
+              wx.chooseWXPay wxPayData
+        error:(data)->
+            console.log "申请支付失败"
 
