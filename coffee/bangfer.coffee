@@ -228,12 +228,12 @@ $("body").on "click", ".select_btn", (evt)->
     $(this).addClass("select_btn_now")
     root.wx_ready(USER_HEADIMGURL,$(this).text())
     iphone_info = $(this).text()
+boss_user_id = "f0d75199ce334fdaa2091df00a9e087b"
+help_user_id = "0cd8429c1da249b6935d7eef72d7fc0b"
 $("body").on "click",".iphone_pay_50", (evt)->
     wx_pay_order_id = ""
     wx_pay_app = "lovebangfer"
     wx_pay_price = 1
-    boss_user_id = "f0d75199ce334fdaa2091df00a9e087b"
-    help_user_id = "0cd8429c1da249b6935d7eef72d7fc0b"
     $.ajax
         "type":"POST"
         "url":"/api/wechat_pay/home/order_unifiedorder"
