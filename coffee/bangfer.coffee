@@ -76,6 +76,7 @@ getQueryVariable = (variable)->
                 return pair[1]
        return false
 aim_ad_id = null
+aim_ad_members = {}
 bangfer_init = (bangfer_app)->
     $("body").append """
         <div id="bangfer_app"></div>
@@ -141,11 +142,77 @@ bangfer_init = (bangfer_app)->
             "aim_id":aim_ad_id
         "success":(data)->
             console.log data
+            aim_ad_members = Object.assign(aim_ad_members,data.members)
+            console.log(aim_ad_members)
+            root.wx_ready aim_ad_members[USER_ID]["headimgurl"]
         "error":(data)->
             console.log data
     $("#bangfer_app").append html
+root.wx_ready = (img) ->
+    wx.ready ()->
+        wx.showAllNonBaseMenuItem()
+        wx.onMenuShareAppMessage
+            title:'我在帮范儿预定iPhone，帮帮砍价！',
+            desc: '最高￥50~￥5000抵扣，赶快召集小伙伴们来砍价！',
+            link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id='+USER_ID
+            imgUrl: img,
+            type: '',
+            dataUrl: '',
+            success: ()->
 
+            cancel: ()->
+                console.log "取消分享给好友"
+        wx.onMenuShareTimeline
+            title: '我在帮范儿预定iPhone，帮帮砍价！'
+            link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id='+USER_ID
+            imgUrl: img
+            success:()->
+            cancel: ()->
+                console.log "取消分享朋友圈"
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
+    wx.config
+        debug: false
+        appId: '{{ handler.wx_appid }}'
+        timestamp: {{ handler.wx_timestamp }}
+        nonceStr: '{{ handler.wx_noncestr }}'
+        signature: '{{ handler.wx_signature }}'
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+
 
