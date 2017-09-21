@@ -1,5 +1,18 @@
-#iphone_list{
+#iphone_list,#iphone_pay{
     text-align: center;
+}
+.iphone_pay_50{
+    border: 0;
+    border-radius: 4px;
+    width: 80%;
+    max-width: 280px;
+    height: 60px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    background: #4caf50;
+    color:white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 22px;
 }
 .select_btn{
     border: 0;
@@ -16,11 +29,6 @@
 .select_btn_now{
     box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }
-
-
-
-
-
 
 #js_code_edit{
     z-index: 1;

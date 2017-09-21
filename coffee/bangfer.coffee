@@ -173,7 +173,7 @@ bangfer_init = (bangfer_app)->
                         <div class="iphone_select"><button class="select_btn">iPhone 8Plus</button></div>
                         <div class="iphone_select"><button class="select_btn">iPhone X</button></div>
                     </div>
-                    <div><button class="iphone_pay_50">￥50 支付定金</button></div>
+                    <div id="iphone_pay"><button class="iphone_pay_50">￥50 支付定金</button></div>
                 """
             $("#bangfer_app").append html
         "error":(data)->
