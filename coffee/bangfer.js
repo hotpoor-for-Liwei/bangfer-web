@@ -110,7 +110,7 @@
     vars = query.split("&");
     for (j = 0, len = vars.length; j < len; j++) {
       i = vars[j];
-      pair = vars[i].split("=");
+      pair = i.split("=");
       if (pair[0] === variable) {
         return pair[1];
       }

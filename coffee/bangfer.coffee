@@ -71,7 +71,7 @@ getQueryVariable = (variable)->
        query = window.location.search.substring(1)
        vars = query.split("&")
        for i in vars
-            pair = vars[i].split("=")
+            pair = i.split("=")
             if pair[0] == variable
                 return pair[1]
        return false
