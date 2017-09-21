@@ -163,7 +163,7 @@ bangfer_init = (bangfer_app)->
                     """
                 html = """
                     <div id="iphone_list_info">
-                        <img src="#{aim_ad_members[USER_ID]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[USER_ID]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
+                        <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
                     </div>
                     <div id="iphone_list_lines">
                     #{h_m}
