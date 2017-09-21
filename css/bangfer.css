@@ -1,5 +1,11 @@
-#iphone_list,#iphone_pay{
+#iphone_list,#iphone_pay,#iphone_pay_info{
     text-align: center;
+}
+#iphone_pay_info{
+    color: #4caf50;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 .iphone_pay_50{
     border: 0;

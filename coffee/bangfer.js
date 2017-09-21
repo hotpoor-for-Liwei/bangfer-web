@@ -188,9 +188,9 @@
             u_time = formatDate(u[3] * 1000);
             h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><span>" + u_name + "</span><span>" + u_time + "</span><p>u_content</p><span>" + u_price + "</span></div>");
           }
-          html = "<div id=\"iphone_list_lines\">\n" + h_m + "\n</div>";
+          html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[USER_ID]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[USER_ID]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines\">\n" + h_m + "\n</div>";
         } else {
-          html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button></div>\n</div>\n<div id=\"iphone_pay\"><button class=\"iphone_pay_50\">￥50 支付定金</button></div>";
+          html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button></div>\n</div>\n<div id=\"iphone_pay\"><button class=\"iphone_pay_50\">￥50 支付定金</button></div>\n<div id=\"iphone_pay_info\" style=\"display:none;\">正在提交</div>";
         }
         return $("#bangfer_app").append(html);
       },
@@ -300,6 +300,8 @@
           signType: 'MD5',
           paySign: data["paysign"],
           success: function(res) {
+            $("#iphone_pay").hide();
+            $("#iphone_pay_info").show();
             return $.ajax({
               url: "/api/ad/pay_success",
               type: "GET",
@@ -320,7 +322,8 @@
                     "content": ("用户昵称:" + USER_NAME + "，手机号:" + aim_ad_members[USER_ID]["tel"] + "，支付成功￥50元，预约手机，型号：") + iphone_info
                   },
                   success: function(data) {
-                    return console.log("wx pay info send success");
+                    console.log("wx pay info send success");
+                    return window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID;
                   },
                   error: function(data) {
                     return console.log("wx pay info send error");
