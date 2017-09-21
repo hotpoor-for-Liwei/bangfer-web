@@ -1,6 +1,7 @@
 root = exports ? this
 bangfer_ws = null
-bangfer_app = ["fix","clothes","shoes","package","express","helper","shop"]
+# bangfer_app = ["fix","clothes","shoes","package","express","helper","shop"]
+bangfer_app = []
 HOTPOOR_CDN_PREFIX = "http://image.hotpoor.org"
 HOTPOOR_CDN_PREFIX_AUDIO = "http://audio.hotpoor.org"
 HOTPOOR_CDN_PREFIX_VIDEO = "http://video.hotpoor.org"
@@ -66,8 +67,15 @@ root.bangfer_script_edit = (action="close")->
         $("#js_code_edit_send_all").on "click",(evt)->
             console.log "未开启"
 
-
-
+getQueryVariable = (variable)->
+       query = window.location.search.substring(1)
+       vars = query.split("&")
+       for i in vars
+            pair = vars[i].split("=")
+            if pair[0] == variable
+                return pair[1]
+       return false
+aim_ad_id = null
 bangfer_init = (bangfer_app)->
     $("body").append """
         <div id="bangfer_app"></div>
@@ -110,7 +118,7 @@ bangfer_init = (bangfer_app)->
                 <div class="bangfer_app_item">商店</div>
             """
 
-    html = """
+    html1 = """
         #{html_fix}
         #{html_clothes}
         #{html_shoes}
@@ -119,6 +127,22 @@ bangfer_init = (bangfer_app)->
         #{html_helper}
         #{html_shop}
     """
+
+    html = """
+    """
+    aim_ad_id = getQueryVariable("aim_ad_id")
+    if not aim_ad_id
+        aim_ad_id = USER_ID
+    $.ajax
+        "type":"GET"
+        "url":"/api/ad/list"
+        "dataType":"json"
+        "data":
+            "aim_id":aim_ad_id
+        "success":(data)->
+            console.log data
+        "error":(data)->
+            console.log data
     $("#bangfer_app").append html
 
 $ ->
