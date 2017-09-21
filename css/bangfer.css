@@ -7,12 +7,13 @@
     width: 80%;
     max-width: 280px;
     height: 60px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
     background: #4caf50;
     color:white;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 22px;
+    cursor: pointer;
 }
 .select_btn{
     border: 0;
@@ -25,8 +26,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 22px;
+    cursor: pointer;
+    opacity: 0.9;
 }
 .select_btn_now{
+    opacity: 1;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }
 
