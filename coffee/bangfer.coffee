@@ -76,6 +76,7 @@ getQueryVariable = (variable)->
                 return pair[1]
        return false
 aim_ad_id = null
+aim_ad_open = 0
 aim_ad_members = {}
 bangfer_init = (bangfer_app)->
     $("body").append """
@@ -145,9 +146,58 @@ bangfer_init = (bangfer_app)->
             aim_ad_members = Object.assign(aim_ad_members,data.members)
             console.log(aim_ad_members)
             root.wx_ready aim_ad_members[USER_ID]["headimgurl"]
+            aim_ad_open = data.ad_open
+            if aim_ad_open == 1
+                h_m = ""
+                h_fee_all = 0
+                for u in data.list_plus
+                    u_name = aim_ad_members[u[0]]["name"]
+                    u_headimgurl = aim_ad_members[u[0]]["headimgurl"]
+                    u_content = u[2]
+                    u_fee = u[1]
+                    h_fee_all = h_fee_all+ u_fee
+                    u_price = "￥"+(u_fee/100.0).toFixed(2)+"元"
+                    u_time = formatDate(u[3]*1000)
+                    h_m = h_m+"""
+                        <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>u_content</p><span>#{u_price}</span></div>
+                    """
+                html = """
+                    <div id="iphone_list_lines">
+                    #{h_m}
+                    </div>
+                """
+            else
+                html = """
+                    <div id="iphone_list">
+                        <div class="iphone_select"><button class="select_btn">iPhone 8</button>
+                        <div class="iphone_select"><button class="select_btn">iPhone 8Plus</button>
+                        <div class="iphone_select"><button class="select_btn">iPhone X</button>
+                    </div>
+                    <button class="iphone_pay_50">￥50 支付定金</button>
+                """
+            $("#bangfer_app").append html
         "error":(data)->
             console.log data
-    $("#bangfer_app").append html
+
+formatDate = (now) ->
+        now_date = new Date(now)
+        audio_list_time_now = new Date()
+        year = now_date.getFullYear()
+        month = now_date.getMonth()+1
+        date = now_date.getDate()
+        hour = now_date.getHours()
+        minute = now_date.getMinutes()
+        if hour < 10
+            hour = "0"+hour
+        if minute < 10
+            minute = "0"+minute
+
+        if audio_list_time_now.getFullYear() == year && audio_list_time_now.getMonth()+1 == month && audio_list_time_now.getDate() == date
+            return  hour+":"+minute
+        if audio_list_time_now.getFullYear() == year
+            return  month+"月"+date+"日 "+hour+":"+minute
+        return  year+"年"+month+"月"+date+"日 "+hour+":"+minute
+
 root.wx_ready = (img) ->
     wx.ready ()->
         wx.showAllNonBaseMenuItem()
@@ -159,7 +209,7 @@ root.wx_ready = (img) ->
             type: '',
             dataUrl: '',
             success: ()->
-
+                console.log "分享给好友成功"
             cancel: ()->
                 console.log "取消分享给好友"
         wx.onMenuShareTimeline
@@ -167,52 +217,11 @@ root.wx_ready = (img) ->
             link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id='+USER_ID
             imgUrl: img
             success:()->
+                console.log "分享朋友圈成功"
             cancel: ()->
                 console.log "取消分享朋友圈"
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
-    wx.config
-        debug: false
-        appId: '{{ handler.wx_appid }}'
-        timestamp: {{ handler.wx_timestamp }}
-        nonceStr: '{{ handler.wx_noncestr }}'
-        signature: '{{ handler.wx_signature }}'
-        jsApiList: [
-            'checkJsApi',
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
-            'hideMenuItems',
-            'showMenuItems',
-            'hideAllNonBaseMenuItem',
-            'showAllNonBaseMenuItem',
-            'translateVoice',
-            'startRecord',
-            'stopRecord',
-            'onRecordEnd',
-            'playVoice',
-            'pauseVoice',
-            'stopVoice',
-            'uploadVoice',
-            'downloadVoice',
-            'chooseImage',
-            'previewImage',
-            'uploadImage',
-            'downloadImage',
-            'getNetworkType',
-            'openLocation',
-            'getLocation',
-            'hideOptionMenu',
-            'showOptionMenu',
-            'closeWindow',
-            'scanQRCode',
-            'chooseWXPay',
-            'openProductSpecificView',
-            'addCard',
-            'chooseCard',
-            'openCard'
-        ]
 
 
