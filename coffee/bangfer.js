@@ -189,13 +189,13 @@
             u_time = formatDate(u[3] * 1000);
             h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
           }
-          h_fee_all_price = "砍" + (h_fee_all / 100.0).toFixed(2) + "元";
+          h_fee_all_price = "累计砍了" + (h_fee_all / 100.0).toFixed(2) + "元";
           if (indexOf.call(data.list, USER_ID) >= 0) {
             h_kan = "";
           } else {
             h_kan = "<div id=\"iphone_kan_cover\">\n    <button class=\"iphone_kan_btn\">点击砍价</button>\n</div>";
           }
-          html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[aim_ad_id]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[aim_ad_id]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines_top\">砍价排行榜</div>\n<div id=\"iphone_list_lines\" align=\"center\">\n" + h_m + "\n<div class=\"iphone_kan_all\">" + h_fee_all_price + "</div>\n</div>\n<div id=\"iphone_list_lines_bottom\">看看谁才是最强助攻...</div>\n<div align=\"left\"><a href=\"http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=" + USER_ID + "\"><div class=\"i_want_order\">我也要预定</div></a></div>\n<div class=\"img_plus_02\"></div>\n<div class=\"img_plus_01\"></div>\n" + h_kan;
+          html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[aim_ad_id]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[aim_ad_id]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines_top\">砍价排行榜 <span class=\"iphone_kan_all\">" + h_fee_all_price + "</span></div>\n<div id=\"iphone_list_lines\" align=\"center\">\n" + h_m + "\n</div>\n<div id=\"iphone_list_lines_bottom\">看看谁才是最强助攻...</div>\n<div align=\"left\"><a href=\"http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=" + USER_ID + "\"><div class=\"i_want_order\">我也要预定</div></a></div>\n<div class=\"img_plus_02\"></div>\n<div class=\"img_plus_01\"></div>\n" + h_kan;
         } else {
           html = "<div id=\"iphone_list\">\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone 8Plus</button></div>\n    <div class=\"iphone_select\"><button class=\"select_btn\">iPhone X</button></div>\n</div>\n<div id=\"iphone_pay\"><button class=\"iphone_pay_50\">￥50 支付定金</button></div>\n<div id=\"iphone_pay_info\" style=\"display:none;\">正在提交</div>";
         }
@@ -326,7 +326,8 @@
                   h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
                 }
                 h_fee_all_price = "砍" + (h_fee_all / 100.0).toFixed(2) + "元";
-                html = h_m + "\n<div class=\"iphone_kan_all\">" + h_fee_all_price + "</div>";
+                html = "" + h_m;
+                $(".iphone_kan_all").text(h_fee_all_price);
               }
               return $("#iphone_list_lines").append(html);
             },

@@ -162,7 +162,7 @@ bangfer_init = (bangfer_app)->
                     h_m = h_m+"""
                         <div class="iphone_list_line"><img src="#{u_headimgurl}"><p class="n_and_t"><span class="nt_name">#{u_name}</span><span class="nt_time">#{u_time}</span></p><p class="u_content">#{u_content}</p><span class="u_price">#{u_price}</span></div>
                     """
-                h_fee_all_price = "砍"+(h_fee_all/100.0).toFixed(2)+"元"
+                h_fee_all_price = "累计砍了"+(h_fee_all/100.0).toFixed(2)+"元"
                 if USER_ID in data.list
                     h_kan = ""
                 else
@@ -175,10 +175,9 @@ bangfer_init = (bangfer_app)->
                     <div id="iphone_list_info">
                         <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
                     </div>
-                    <div id="iphone_list_lines_top">砍价排行榜</div>
+                    <div id="iphone_list_lines_top">砍价排行榜 <span class="iphone_kan_all">#{h_fee_all_price}</span></div>
                     <div id="iphone_list_lines" align="center">
                     #{h_m}
-                    <div class="iphone_kan_all">#{h_fee_all_price}</div>
                     </div>
                     <div id="iphone_list_lines_bottom">看看谁才是最强助攻...</div>
                     <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
@@ -293,8 +292,8 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                             h_fee_all_price = "砍"+(h_fee_all/100.0).toFixed(2)+"元"
                             html = """
                                 #{h_m}
-                                <div class="iphone_kan_all">#{h_fee_all_price}</div>
                             """
+                            $(".iphone_kan_all").text(h_fee_all_price)
                         $("#iphone_list_lines").append html
                     "error":(data)->
                         console.log data
