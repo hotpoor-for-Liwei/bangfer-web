@@ -140,10 +140,10 @@ span.nt_time {
 
 .iphone_kan_btn_animate
 {
-animation: myfirst 1s;
--moz-animation: myfirst 1s; /* Firefox */
--webkit-animation: myfirst 1s;  /* Safari 和 Chrome */
--o-animation: myfirst 1s;   /* Opera */
+animation: myfirst 1s infinite linear;
+-moz-animation: myfirst 1s infinite linear; /* Firefox */
+-webkit-animation: myfirst 1s infinite linear;  /* Safari 和 Chrome */
+-o-animation: myfirst 1s infinite linear;   /* Opera */
 }
 @keyframes myfirst
 {
