@@ -255,6 +255,7 @@ $("body").on "click",".iphone_kan_btn", (evt)->
         success:(data)->
             console.log "砍价成功"
             if data.info == "update"
+                $("#iphone_kan_cover").remove()
                 $("#iphone_list_lines").empty()
                 $.ajax
                     "type":"GET"
@@ -281,14 +282,6 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                                 u_time = formatDate(u[3]*1000)
                                 h_m = h_m+"""
                                     <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>#{u_content}</p><span>#{u_price}</span></div>
-                                """
-                            if USER_ID in data.list
-                                h_kan = ""
-                            else
-                                h_kan = """
-                                <div id="iphone_kan_cover">
-                                    <button class="iphone_kan_btn">点击砍价</button>
-                                </div>
                                 """
                             html = """
                                 #{h_m}

@@ -293,6 +293,7 @@
       success: function(data) {
         console.log("砍价成功");
         if (data.info === "update") {
+          $("#iphone_kan_cover").remove();
           $("#iphone_list_lines").empty();
           return $.ajax({
             "type": "GET",
@@ -302,7 +303,7 @@
               "aim_id": aim_ad_id
             },
             "success": function(data) {
-              var h_fee_all, h_kan, h_m, html, j, len, ref, u, u_content, u_fee, u_headimgurl, u_name, u_price, u_time;
+              var h_fee_all, h_m, html, j, len, ref, u, u_content, u_fee, u_headimgurl, u_name, u_price, u_time;
               console.log(data);
               aim_ad_members = Object.assign(aim_ad_members, data.members);
               console.log(aim_ad_members);
@@ -322,11 +323,6 @@
                   u_price = "￥" + (u_fee / 100.0).toFixed(2) + "元";
                   u_time = formatDate(u[3] * 1000);
                   h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><span>" + u_name + "</span><span>" + u_time + "</span><p>" + u_content + "</p><span>" + u_price + "</span></div>");
-                }
-                if (indexOf.call(data.list, USER_ID) >= 0) {
-                  h_kan = "";
-                } else {
-                  h_kan = "<div id=\"iphone_kan_cover\">\n    <button class=\"iphone_kan_btn\">点击砍价</button>\n</div>";
                 }
                 html = "" + h_m;
               }
