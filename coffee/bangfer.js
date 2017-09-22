@@ -303,7 +303,7 @@
               "aim_id": aim_ad_id
             },
             "success": function(data) {
-              var h_fee_all, h_m, html, j, len, ref, u, u_content, u_fee, u_headimgurl, u_name, u_price, u_time;
+              var h_fee_all, h_fee_all_price, h_m, html, j, len, ref, u, u_content, u_fee, u_headimgurl, u_name, u_price, u_time;
               console.log(data);
               aim_ad_members = Object.assign(aim_ad_members, data.members);
               console.log(aim_ad_members);
@@ -324,7 +324,8 @@
                   u_time = formatDate(u[3] * 1000);
                   h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
                 }
-                html = "" + h_m;
+                h_fee_all_price = "砍" + (h_fee_all / 100.0).toFixed(2) + "元";
+                html = h_m + "\n<div class=\"iphone_kan_all\">" + h_fee_all_price + "</div>";
               }
               return $("#iphone_list_lines").append(html);
             },

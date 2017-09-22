@@ -288,8 +288,10 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                                 h_m = h_m+"""
                                     <div class="iphone_list_line"><img src="#{u_headimgurl}"><p class="n_and_t"><span class="nt_name">#{u_name}</span><span class="nt_time">#{u_time}</span></p><p class="u_content">#{u_content}</p><span class="u_price">#{u_price}</span></div>
                                 """
+                            h_fee_all_price = "砍"+(h_fee_all/100.0).toFixed(2)+"元"
                             html = """
                                 #{h_m}
+                                <div class="iphone_kan_all">#{h_fee_all_price}</div>
                             """
                         $("#iphone_list_lines").append html
                     "error":(data)->
