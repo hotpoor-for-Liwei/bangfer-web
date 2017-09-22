@@ -8,14 +8,14 @@
     font-size: 20px;
 }
 #iphone_list_lines{
-    height: 300px;
+    height: 260px;
     overflow-y: auto;
 }
 
 #iphone_list_lines_top{
     margin-left: 20px;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: bolder;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -23,11 +23,26 @@
 #iphone_list_lines_bottom{
     margin-left: 20px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: bolder;
     margin-top: 5px;
     margin-bottom: 5px;
 }
-
+#iphone_list_info{
+    padding: 0 20px;
+}
+#iphone_list_info>span{
+    position: absolute;
+    left: 80px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+#iphone_list_info>p{
+    position: absolute;
+    left: 80px;
+    top: 38px;
+    font-size: 16px;
+    color: #999;
+}
 .img_plus_01{
     background-image:url(http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_2efe227d2164960c9259b35241a41a70?imageView2);
     background-size: cover;;
