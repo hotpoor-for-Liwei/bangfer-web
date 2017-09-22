@@ -286,7 +286,7 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                                 u_price = "￥"+(u_fee/100.0).toFixed(2)+"元"
                                 u_time = formatDate(u[3]*1000)
                                 h_m = h_m+"""
-                                    <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>#{u_content}</p><span>#{u_price}</span></div>
+                                    <div class="iphone_list_line"><img src="#{u_headimgurl}"><p class="n_and_t"><span class="nt_name">#{u_name}</span><span class="nt_time">#{u_time}</span></p><p class="u_content">#{u_content}</p><span class="u_price">#{u_price}</span></div>
                                 """
                             html = """
                                 #{h_m}
