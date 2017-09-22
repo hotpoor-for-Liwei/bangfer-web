@@ -202,6 +202,9 @@
           html = "<div id=\"iphone_list_info\">\n    <img src=\"" + aim_ad_members[aim_ad_id]["headimgurl"] + "\" style=\"width:50px;height:50px;\"><span>" + aim_ad_members[aim_ad_id]["name"] + "</span><p>亲们，帮我一块砍价吧！</p>\n</div>\n<div id=\"iphone_list_lines_top\">砍价排行榜 <span class=\"iphone_kan_all\">" + h_fee_all_price + "</span></div>\n<div id=\"iphone_list_lines\" align=\"center\">\n" + h_m + "\n</div>\n<div id=\"iphone_list_lines_bottom\">" + iphone_list_lines_bottom_str + "</div>\n<div align=\"left\"><a href=\"http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=" + USER_ID + "\"><div class=\"i_want_order\">我也要预定</div></a></div>\n<div class=\"img_plus_02\"></div>\n<div class=\"img_plus_01\"></div>\n" + h_kan;
         } else {
           html = "<div id=\"iphone_list\">\n    <div>型号选择</div>\n    <div class=\"iphone_select\">\n        <button class=\"select_btn\">iPhone 8</button>\n        <button class=\"select_btn\">iPhone 8Plus</button>\n        <button class=\"select_btn\">iPhone X</button>\n    </div>\n    <div>颜色选择</div>\n    <div class=\"iphone_select\">\n        <button class=\"select_color_btn\">深空灰色</button>\n        <button class=\"select_color_btn\">银色</button>\n        <button class=\"select_color_btn\">金色</button>\n    </div>\n    <div>容量选择</div>\n    <div class=\"iphone_select\">\n        <button class=\"select_size_btn\">64G</button>\n        <button class=\"select_size_btn\">256G</button>\n    </div>\n</div>\n<div id=\"iphone_pay\"><button class=\"iphone_pay_50\">￥50 支付定金</button></div>\n<div id=\"iphone_pay_info\" style=\"display:none;\">正在提交</div>";
+          $("body").css({
+            backgroundImage: "url(http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_2efe227d2164960c9259b35241a41a70?imageView2/2/w/400)"
+          });
         }
         return $("#bangfer_app").append(html);
       },

@@ -212,6 +212,8 @@ bangfer_init = (bangfer_app)->
                     <div id="iphone_pay"><button class="iphone_pay_50">￥50 支付定金</button></div>
                     <div id="iphone_pay_info" style="display:none;">正在提交</div>
                 """
+                $("body").css
+                    backgroundImage:"url(http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_2efe227d2164960c9259b35241a41a70?imageView2/2/w/400)"
             $("#bangfer_app").append html
         "error":(data)->
             console.log data
