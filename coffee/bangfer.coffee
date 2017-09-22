@@ -179,7 +179,7 @@ bangfer_init = (bangfer_app)->
                     #{h_m}
                     </div>
                     <div id="iphone_list_lines_bottom">看看谁才是最强助攻...</div>
-                    <div align="center"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
+                    <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
                     <div class="img_plus_01"></div>
                     #{h_kan}
                 """
