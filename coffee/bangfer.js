@@ -283,7 +283,7 @@
 
   iphone_size_info = "容量";
 
-  iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_share_info;
+  iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_size_info;
 
   $("body").on("click", ".select_btn", function(evt) {
     $(".select_btn").removeClass("select_btn_now");
@@ -297,7 +297,7 @@
     } else {
       $(".select_color_btn").removeAttr("disabled");
     }
-    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_share_info;
+    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_size_info;
     return root.wx_ready(USER_HEADIMGURL, iphone_share_info);
   });
 
@@ -305,7 +305,7 @@
     $(".select_color_btn").removeClass("select_btn_now");
     $(this).addClass("select_btn_now");
     iphone_color_info = $(this).text();
-    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_share_info;
+    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_size_info;
     return root.wx_ready(USER_HEADIMGURL, iphone_share_info);
   });
 
@@ -313,7 +313,7 @@
     $(".select_size_btn").removeClass("select_btn_now");
     $(this).addClass("select_btn_now");
     iphone_size_info = $(this).text();
-    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_share_info;
+    iphone_share_info = iphone_info + " " + iphone_color_info + " " + iphone_size_info;
     return root.wx_ready(USER_HEADIMGURL, iphone_share_info);
   });
 
