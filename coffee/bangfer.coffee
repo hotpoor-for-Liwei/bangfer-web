@@ -191,9 +191,23 @@ bangfer_init = (bangfer_app)->
             else
                 html = """
                     <div id="iphone_list">
-                        <div class="iphone_select"><button class="select_btn">iPhone 8</button></div>
-                        <div class="iphone_select"><button class="select_btn">iPhone 8Plus</button></div>
-                        <div class="iphone_select"><button class="select_btn">iPhone X</button></div>
+                        <div>型号选择</div>
+                        <div class="iphone_select">
+                            <button class="select_btn">iPhone 8</button>
+                            <button class="select_btn">iPhone 8Plus</button>
+                            <button class="select_btn">iPhone X</button>
+                        </div>
+                        <div>颜色选择</div>
+                        <div class="iphone_select">
+                            <button class="select_color_btn">深空灰色</button>
+                            <button class="select_color_btn">银色</button>
+                            <button class="select_color_btn">金色</button>
+                        </div>
+                        <div>容量选择</div>
+                        <div class="iphone_select">
+                            <button class="select_size_btn">64G</button>
+                            <button class="select_size_btn">256G</button>
+                        </div>
                     </div>
                     <div id="iphone_pay"><button class="iphone_pay_50">￥50 支付定金</button></div>
                     <div id="iphone_pay_info" style="display:none;">正在提交</div>
@@ -245,12 +259,35 @@ root.wx_ready = (img,text="iPhone") ->
 $ ->
     bangfer_ws = 1
     bangfer_init(bangfer_app)
-iphone_info = "新iPhone 未选择"
+iphone_info = "新iPhone"
+iphone_color_info = "颜色"
+iphone_size_info = "容量"
+iphone_share_info = "#{iphone_info} #{iphone_color_info} #{iphone_share_info}"
 $("body").on "click", ".select_btn", (evt)->
     $(".select_btn").removeClass("select_btn_now")
     $(this).addClass("select_btn_now")
-    root.wx_ready(USER_HEADIMGURL,$(this).text())
     iphone_info = $(this).text()
+    if $(this).text() == "iPhone X"
+        $($(".select_color_btn")[2]).attr('disabled',"true")
+        if iphone_info == "金色"
+            $($(".select_color_btn")[0]).click()
+    else
+        $(".select_color_btn").removeAttr("disabled")
+    iphone_share_info = "#{iphone_info} #{iphone_color_info} #{iphone_share_info}"
+    root.wx_ready(USER_HEADIMGURL,iphone_share_info)
+$("body").on "click", ".select_color_btn", (evt)->
+    $(".select_color_btn").removeClass("select_btn_now")
+    $(this).addClass("select_btn_now")
+    iphone_color_info = $(this).text()
+    iphone_share_info = "#{iphone_info} #{iphone_color_info} #{iphone_share_info}"
+    root.wx_ready(USER_HEADIMGURL,iphone_share_info)
+$("body").on "click", ".select_size_btn", (evt)->
+    $(".select_size_btn").removeClass("select_btn_now")
+    $(this).addClass("select_btn_now")
+    iphone_size_info = $(this).text()
+    iphone_share_info = "#{iphone_info} #{iphone_color_info} #{iphone_share_info}"
+    root.wx_ready(USER_HEADIMGURL,iphone_share_info)
+
 boss_user_id = "f0d75199ce334fdaa2091df00a9e087b"
 help_user_id = "0cd8429c1da249b6935d7eef72d7fc0b"
 
@@ -360,7 +397,7 @@ $("body").on "click",".iphone_pay_50", (evt)->
                                     "app": 'hotpoor'
                                     "aim_id": boss_user_id
                                     "user_id": boss_user_id
-                                    "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_info
+                                    "content": "用户昵称:#{USER_NAME}，手机号:#{aim_ad_members[USER_ID]["tel"]}，支付成功￥50元，预约手机，型号："+iphone_share_info
                                 success: (data)->
                                     console.log "wx pay info send success"
                                     window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID
