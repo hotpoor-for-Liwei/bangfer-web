@@ -151,6 +151,7 @@ bangfer_init = (bangfer_app)->
             if aim_ad_open == 1
                 h_m = ""
                 h_fee_all = 0
+                iphone_list_lines_bottom_str = ""
                 for u in data.list_plus
                     u_name = aim_ad_members[u[0]]["name"]
                     u_headimgurl = aim_ad_members[u[0]]["headimgurl"]
@@ -159,6 +160,10 @@ bangfer_init = (bangfer_app)->
                     h_fee_all = h_fee_all+ u_fee
                     u_price = ""+(u_fee/100.0).toFixed(2)+"元"
                     u_time = formatDate(u[3]*1000)
+                    if u[0] == USER_ID
+                        iphone_list_lines_bottom_str = """<span style="color:#f0121a;font-size:14px;">不错哟，您帮忙砍了#{u_price}!</span>"""
+                    else
+                        iphone_list_lines_bottom_str = "看看谁才是最强助攻..."
                     h_m = h_m+"""
                         <div class="iphone_list_line"><img src="#{u_headimgurl}"><p class="n_and_t"><span class="nt_name">#{u_name}</span><span class="nt_time">#{u_time}</span></p><p class="u_content">#{u_content}</p><span class="u_price">#{u_price}</span></div>
                     """
@@ -179,7 +184,7 @@ bangfer_init = (bangfer_app)->
                     <div id="iphone_list_lines" align="center">
                     #{h_m}
                     </div>
-                    <div id="iphone_list_lines_bottom">看看谁才是最强助攻...</div>
+                    <div id="iphone_list_lines_bottom">#{iphone_list_lines_bottom_str}</div>
                     <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
                     <div class="img_plus_02"></div>
                     <div class="img_plus_01"></div>
@@ -278,6 +283,7 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                         if aim_ad_open == 1
                             h_m = ""
                             h_fee_all = 0
+                            iphone_list_lines_bottom_str = ""
                             for u in data.list_plus
                                 u_name = aim_ad_members[u[0]]["name"]
                                 u_headimgurl = aim_ad_members[u[0]]["headimgurl"]
@@ -285,6 +291,10 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                                 u_fee = u[1]
                                 h_fee_all = h_fee_all+ u_fee
                                 u_price = ""+(u_fee/100.0).toFixed(2)+"元"
+                                if u[0] == USER_ID
+                                    iphone_list_lines_bottom_str = """<span style="color:#f0121a;font-size:14px;">不错哟，您帮忙砍了#{u_price}!</span>"""
+                                else
+                                    iphone_list_lines_bottom_str = "看看谁才是最强助攻..."
                                 u_time = formatDate(u[3]*1000)
                                 h_m = h_m+"""
                                     <div class="iphone_list_line"><img src="#{u_headimgurl}"><p class="n_and_t"><span class="nt_name">#{u_name}</span><span class="nt_time">#{u_time}</span></p><p class="u_content">#{u_content}</p><span class="u_price">#{u_price}</span></div>
@@ -293,6 +303,7 @@ $("body").on "click",".iphone_kan_btn", (evt)->
                             html = """
                                 #{h_m}
                             """
+                            $("#iphone_list_lines_bottom").html(iphone_list_lines_bottom_str)
                             $(".iphone_kan_all").text(h_fee_all_price)
                         $("#iphone_list_lines").append html
                     "error":(data)->
