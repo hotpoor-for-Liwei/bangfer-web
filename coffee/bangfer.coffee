@@ -255,7 +255,47 @@ $("body").on "click",".iphone_kan_btn", (evt)->
         success:(data)->
             console.log "砍价成功"
             if data.info == "update"
-                window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID
+                $("#iphone_list_lines").empty()
+                $.ajax
+                    "type":"GET"
+                    "url":"/api/ad/list"
+                    "dataType":"json"
+                    "data":
+                        "aim_id":aim_ad_id
+                    "success":(data)->
+                        console.log data
+                        aim_ad_members = Object.assign(aim_ad_members,data.members)
+                        console.log(aim_ad_members)
+                        root.wx_ready aim_ad_members[USER_ID]["headimgurl"]
+                        aim_ad_open = data.ad_open
+                        if aim_ad_open == 1
+                            h_m = ""
+                            h_fee_all = 0
+                            for u in data.list_plus
+                                u_name = aim_ad_members[u[0]]["name"]
+                                u_headimgurl = aim_ad_members[u[0]]["headimgurl"]
+                                u_content = u[2]
+                                u_fee = u[1]
+                                h_fee_all = h_fee_all+ u_fee
+                                u_price = "￥"+(u_fee/100.0).toFixed(2)+"元"
+                                u_time = formatDate(u[3]*1000)
+                                h_m = h_m+"""
+                                    <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>#{u_content}</p><span>#{u_price}</span></div>
+                                """
+                            if USER_ID in data.list
+                                h_kan = ""
+                            else
+                                h_kan = """
+                                <div id="iphone_kan_cover">
+                                    <button class="iphone_kan_btn">点击砍价</button>
+                                </div>
+                                """
+                            html = """
+                                #{h_m}
+                            """
+                        $("#iphone_list_lines").append html
+                    "error":(data)->
+                        console.log data
         error:(data)->
             console.log "砍价失败"
 

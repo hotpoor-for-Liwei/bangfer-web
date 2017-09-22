@@ -293,7 +293,49 @@
       success: function(data) {
         console.log("砍价成功");
         if (data.info === "update") {
-          return window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID;
+          $("#iphone_list_lines").empty();
+          return $.ajax({
+            "type": "GET",
+            "url": "/api/ad/list",
+            "dataType": "json",
+            "data": {
+              "aim_id": aim_ad_id
+            },
+            "success": function(data) {
+              var h_fee_all, h_kan, h_m, html, j, len, ref, u, u_content, u_fee, u_headimgurl, u_name, u_price, u_time;
+              console.log(data);
+              aim_ad_members = Object.assign(aim_ad_members, data.members);
+              console.log(aim_ad_members);
+              root.wx_ready(aim_ad_members[USER_ID]["headimgurl"]);
+              aim_ad_open = data.ad_open;
+              if (aim_ad_open === 1) {
+                h_m = "";
+                h_fee_all = 0;
+                ref = data.list_plus;
+                for (j = 0, len = ref.length; j < len; j++) {
+                  u = ref[j];
+                  u_name = aim_ad_members[u[0]]["name"];
+                  u_headimgurl = aim_ad_members[u[0]]["headimgurl"];
+                  u_content = u[2];
+                  u_fee = u[1];
+                  h_fee_all = h_fee_all + u_fee;
+                  u_price = "￥" + (u_fee / 100.0).toFixed(2) + "元";
+                  u_time = formatDate(u[3] * 1000);
+                  h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><span>" + u_name + "</span><span>" + u_time + "</span><p>" + u_content + "</p><span>" + u_price + "</span></div>");
+                }
+                if (indexOf.call(data.list, USER_ID) >= 0) {
+                  h_kan = "";
+                } else {
+                  h_kan = "<div id=\"iphone_kan_cover\">\n    <button class=\"iphone_kan_btn\">点击砍价</button>\n</div>";
+                }
+                html = "" + h_m;
+              }
+              return $("#iphone_list_lines").append(html);
+            },
+            "error": function(data) {
+              return console.log(data);
+            }
+          });
         }
       },
       error: function(data) {
