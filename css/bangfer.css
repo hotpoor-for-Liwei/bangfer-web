@@ -23,6 +23,17 @@
     right: 0px;
     bottom: 0px;
 }
+.img_plus_02{
+    background-image:url(http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_f436a7be2a956a1deb8e9fb9071aae68?imageView2);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top left;
+    width:100%;
+    height:100px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
 .i_want_order{
     width: 200px;
     background: gray;
