@@ -373,7 +373,7 @@
     var wx_pay_app, wx_pay_order_id, wx_pay_price;
     wx_pay_order_id = "";
     wx_pay_app = "lovebangfer";
-    wx_pay_price = 1;
+    wx_pay_price = 5000;
     return $.ajax({
       "type": "POST",
       "url": "/api/wechat_pay/home/order_unifiedorder",

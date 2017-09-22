@@ -324,7 +324,7 @@ $("body").on "touchstart","#iphone_list_lines", (e)->
 $("body").on "click",".iphone_pay_50", (evt)->
     wx_pay_order_id = ""
     wx_pay_app = "lovebangfer"
-    wx_pay_price = 1
+    wx_pay_price = 5000
     $.ajax
         "type":"POST"
         "url":"/api/wechat_pay/home/order_unifiedorder"
