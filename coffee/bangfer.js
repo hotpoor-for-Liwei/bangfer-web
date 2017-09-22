@@ -261,7 +261,7 @@
       return wx.onMenuShareTimeline({
         title: "我在帮范儿预定" + text + "，帮帮砍价！",
         link: 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID,
-        imgUrl: img,
+        imgUrl: 'http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_5a13684107f0f52ce0ca52c39dd30ad5?imageView2/2/w/300',
         success: function() {
           return console.log("分享朋友圈成功");
         },
