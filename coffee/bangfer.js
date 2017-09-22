@@ -177,7 +177,7 @@
         if (aim_ad_open === 1) {
           h_m = "";
           h_fee_all = 0;
-          iphone_list_lines_bottom_str = "";
+          iphone_list_lines_bottom_str = "看看谁才是最强助攻...";
           ref = data.list_plus;
           for (k = 0, len1 = ref.length; k < len1; k++) {
             u = ref[k];
@@ -190,8 +190,6 @@
             u_time = formatDate(u[3] * 1000);
             if (u[0] === USER_ID) {
               iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:14px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
-            } else {
-              iphone_list_lines_bottom_str = "看看谁才是最强助攻...";
             }
             h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
           }
@@ -319,7 +317,7 @@
               if (aim_ad_open === 1) {
                 h_m = "";
                 h_fee_all = 0;
-                iphone_list_lines_bottom_str = "";
+                iphone_list_lines_bottom_str = "看看谁才是最强助攻...";
                 ref = data.list_plus;
                 for (j = 0, len = ref.length; j < len; j++) {
                   u = ref[j];
@@ -331,8 +329,6 @@
                   u_price = "" + (u_fee / 100.0).toFixed(2) + "元";
                   if (u[0] === USER_ID) {
                     iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:14px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
-                  } else {
-                    iphone_list_lines_bottom_str = "看看谁才是最强助攻...";
                   }
                   u_time = formatDate(u[3] * 1000);
                   h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
