@@ -160,7 +160,7 @@ bangfer_init = (bangfer_app)->
                     u_price = "￥"+(u_fee/100.0).toFixed(2)+"元"
                     u_time = formatDate(u[3]*1000)
                     h_m = h_m+"""
-                        <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>u_content</p><span>#{u_price}</span></div>
+                        <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>#{u_content}</p><span>#{u_price}</span></div>
                     """
                 if USER_ID in data.list
                     h_kan = ""
