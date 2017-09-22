@@ -304,10 +304,8 @@ $("body").on "click",".iphone_kan_btn", (evt)->
             console.log "砍价成功"
             if data.info == "update"
                 $(".iphone_kan_btn").addClass("iphone_kan_btn_animate")
-                setTimeout ()->
-                        $("#iphone_kan_cover").fadeOut 1000, ()->
-                            $("#iphone_kan_cover").remove()
-                    ,1000
+                $("#iphone_kan_cover").fadeOut 1000, ()->
+                    $("#iphone_kan_cover").remove()
                 $("#iphone_list_lines").empty()
                 $.ajax
                     "type":"GET"
