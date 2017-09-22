@@ -298,7 +298,9 @@
       success: function(data) {
         console.log("砍价成功");
         if (data.info === "update") {
-          $("#iphone_kan_cover").remove();
+          $("#iphone_kan_cover").fadeOut(function() {
+            return $("#iphone_kan_cover").remove();
+          });
           $("#iphone_list_lines").empty();
           return $.ajax({
             "type": "GET",
