@@ -14,13 +14,24 @@
     background-size: cover;;
     background-repeat: no-repeat;
     background-position: top left;
-    width:150px;
-    height:137px;
+    width:200px;
+    height:183px;
     position: fixed;
     right: 0px;
     bottom: 0px;
 }
-
+.i_want_order{
+    width: 200px;
+    background: gray;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-left: 30px;
+}
 
 
 
