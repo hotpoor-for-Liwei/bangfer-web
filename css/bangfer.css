@@ -107,8 +107,11 @@ span.nt_time {
 }
 .iphone_kan_all{
     position: fixed;
-    right: 20px;
+    right: 10px;
     top: 5px;
+    color: #f0121a;
+    font-weight: bolder;
+    font-size: 28px;
 }
 .iphone_list_line>p.n_and_t {
     position: absolute;
