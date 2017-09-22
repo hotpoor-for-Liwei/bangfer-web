@@ -255,7 +255,7 @@ $("body").on "click",".iphone_kan_btn", (evt)->
         success:(data)->
             console.log "砍价成功"
             if data.info == "update"
-                window.location.reload()
+                window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID
         error:(data)->
             console.log "砍价失败"
 

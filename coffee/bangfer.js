@@ -293,7 +293,7 @@
       success: function(data) {
         console.log("砍价成功");
         if (data.info === "update") {
-          return window.location.reload();
+          return window.location.href = 'http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=' + USER_ID;
         }
       },
       error: function(data) {
