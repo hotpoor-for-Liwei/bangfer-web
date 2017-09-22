@@ -170,8 +170,8 @@ bangfer_init = (bangfer_app)->
                     h_kan = ""
                 else
                     h_kan = """
-                    <div id="iphone_kan_cover">
-                        <button class="iphone_kan_btn">点击砍价</button>
+                    <div id="iphone_kan_cover" align="center">
+                        <button class="iphone_kan_btn"></button>
                     </div>
                     """
                 html = """

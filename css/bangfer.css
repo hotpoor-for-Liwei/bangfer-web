@@ -113,6 +113,26 @@ span.nt_time {
     font-size: 22px;
     margin-right: 20px;
 }
+
+#iphone_kan_cover{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #f2f2f2;
+}
+.iphone_kan_btn{
+    margin-top: 36px;
+    background: url(http://image.hotpoor.org/2dd2c53e7c654c66b398e574848d4c34_403b861211f57479aed5148d599610b6?imageView2);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 200px;
+    height: 124px;
+    cursor: pointer;
+    border: 0;
+}
 .iphone_list_line>p.n_and_t {
     position: absolute;
     left: 42px;
