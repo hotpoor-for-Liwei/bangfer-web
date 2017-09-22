@@ -174,9 +174,13 @@ bangfer_init = (bangfer_app)->
                     <div id="iphone_list_info">
                         <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
                     </div>
-                    <div id="iphone_list_lines">
+                    <div id="iphone_list_lines_top">砍价排行榜</div>
+                    <div id="iphone_list_lines" align="center">
                     #{h_m}
                     </div>
+                    <div id="iphone_list_lines_bottom">看看谁才是最强助攻...</div>
+                    <a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a>
+                    <div class="img_plus_01"></div>
                     #{h_kan}
                 """
             else

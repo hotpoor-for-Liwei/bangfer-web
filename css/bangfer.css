@@ -7,6 +7,30 @@
     margin-bottom: 10px;
     font-size: 20px;
 }
+
+
+.img_plus_01{
+    background-image:url(http://image.hotpoor.org/0cd8429c1da249b6935d7eef72d7fc0b_2efe227d2164960c9259b35241a41a70?imageView2);
+    background-size: cover;;
+    background-repeat: no-repeat;
+    background-position: top left;
+    width:150px;
+    height:137px;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
+
+
+
+
+
+
+.iphone_list_line{
+    width: 80%;
+    max-width: 300px;
+    text-align:left;
+}
 .iphone_list_line>img{
     width: 30px;
     height: 30px;
