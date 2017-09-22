@@ -340,6 +340,18 @@
     });
   });
 
+  $("body").on("touchstart", "#iphone_list_lines", function(e) {
+    var el_now, scrollTop;
+    el_now = this;
+    scrollTop = el_now.scrollTop;
+    if (scrollTop === 0) {
+      el_now.scrollTop = 1;
+    }
+    if (el_now.scrollTop + el_now.offsetHeight === el_now.scrollHeight) {
+      return el_now.scrollTop = parseInt(el_now.scrollHeight) - parseInt(el_now.offsetHeight) - 1;
+    }
+  });
+
   $("body").on("click", ".iphone_pay_50", function(evt) {
     var wx_pay_app, wx_pay_order_id, wx_pay_price;
     wx_pay_order_id = "";
