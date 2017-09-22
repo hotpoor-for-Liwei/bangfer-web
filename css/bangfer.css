@@ -137,6 +137,49 @@ span.nt_time {
     cursor: pointer;
     border: 0;
 }
+
+.iphone_kan_btn_animate
+{
+animation: myfirst 1s;
+-moz-animation: myfirst 1s; /* Firefox */
+-webkit-animation: myfirst 1s;  /* Safari 和 Chrome */
+-o-animation: myfirst 1s;   /* Opera */
+}
+@keyframes myfirst
+{
+0%   {transform: rotate(0deg);}
+25%  {transform: rotate(30deg);}
+50%  {transform: rotate(0deg);}
+100% {transform: rotate(-30deg);}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {-moz-transform: rotate(0deg);}
+25%  {-moz-transform: rotate(30deg);}
+50%  {-moz-transform: rotate(0deg);}
+100% {-moz-transform: rotate(-30deg);}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {-webkit-transform: rotate(0deg);}
+25%  {-webkit-transform: rotate(30deg);}
+50%  {-webkit-transform: rotate(0deg);}
+100% {-webkit-transform: rotate(-30deg);}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {-o-transform: rotate(0deg);}
+25%  {-o-transform: rotate(30deg);}
+50%  {-o-transform: rotate(0deg);}
+100% {-o-transform: rotate(-30deg);}
+}
+
+
+
+
 .iphone_list_line>p.n_and_t {
     position: absolute;
     left: 42px;
