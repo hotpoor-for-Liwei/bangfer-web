@@ -189,7 +189,7 @@
             u_price = "" + (u_fee / 100.0).toFixed(2) + "元";
             u_time = formatDate(u[3] * 1000);
             if (u[0] === USER_ID) {
-              iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:14px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
+              iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:18px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
             }
             h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
           }
@@ -328,7 +328,7 @@
                   h_fee_all = h_fee_all + u_fee;
                   u_price = "" + (u_fee / 100.0).toFixed(2) + "元";
                   if (u[0] === USER_ID) {
-                    iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:14px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
+                    iphone_list_lines_bottom_str = "<span style=\"color:#f0121a;font-size:18px;\">不错哟，您帮忙砍了" + u_price + "!</span>";
                   }
                   u_time = formatDate(u[3] * 1000);
                   h_m = h_m + ("<div class=\"iphone_list_line\"><img src=\"" + u_headimgurl + "\"><p class=\"n_and_t\"><span class=\"nt_name\">" + u_name + "</span><span class=\"nt_time\">" + u_time + "</span></p><p class=\"u_content\">" + u_content + "</p><span class=\"u_price\">" + u_price + "</span></div>");
