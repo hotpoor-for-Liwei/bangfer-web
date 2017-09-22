@@ -133,7 +133,7 @@ bangfer_init = (bangfer_app)->
     html = """
     """
     aim_ad_id = getQueryVariable("aim_ad_id")
-    alert(aim_ad_id)
+    # alert(aim_ad_id)
     if not aim_ad_id
         aim_ad_id = USER_ID
     $.ajax
@@ -162,6 +162,14 @@ bangfer_init = (bangfer_app)->
                     h_m = h_m+"""
                         <div class="iphone_list_line"><img src="#{u_headimgurl}"><span>#{u_name}</span><span>#{u_time}</span><p>u_content</p><span>#{u_price}</span></div>
                     """
+                if USER_ID in data.list
+                    h_kan = ""
+                else
+                    h_kan = """
+                    <div id="iphone_kan_cover">
+                        <button class="iphone_kan_btn">点击砍价</button>
+                    </div>
+                    """
                 html = """
                     <div id="iphone_list_info">
                         <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
@@ -169,6 +177,7 @@ bangfer_init = (bangfer_app)->
                     <div id="iphone_list_lines">
                     #{h_m}
                     </div>
+                    #{h_kan}
                 """
             else
                 html = """
@@ -235,6 +244,21 @@ $("body").on "click", ".select_btn", (evt)->
     iphone_info = $(this).text()
 boss_user_id = "f0d75199ce334fdaa2091df00a9e087b"
 help_user_id = "0cd8429c1da249b6935d7eef72d7fc0b"
+
+$("body").on "click",".iphone_kan_btn", (evt)->
+    $.ajax
+        "type":"GET"
+        "url":"/api/ad/add"
+        "dataType":"json"
+        "data":
+            aim_id:aim_ad_id
+        success:(data)->
+            console.log "砍价成功"
+            if data.info == "update"
+                window.location.reload()
+        error:(data)->
+            console.log "砍价失败"
+
 $("body").on "click",".iphone_pay_50", (evt)->
     wx_pay_order_id = ""
     wx_pay_app = "lovebangfer"
