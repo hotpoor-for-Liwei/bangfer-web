@@ -1,14 +1,14 @@
-#iphone_list{
-    padding: 15px;
-    text-align: left;
-    font-size: 18px;
-    font-weight: bold;
-}
 .iphone_select{
     margin-bottom: 10px;
 }
 #iphone_list,#iphone_pay,#iphone_pay_info{
     text-align: center;
+}
+#iphone_list{
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
 }
 #iphone_pay_info{
     color: #4caf50;
