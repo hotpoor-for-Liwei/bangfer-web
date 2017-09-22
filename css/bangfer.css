@@ -10,6 +10,10 @@
     font-size: 18px;
     font-weight: bold;
 }
+#iphone_pay{
+    padding: 15px;
+    text-align: left;
+}
 #iphone_pay_info{
     color: #4caf50;
     margin-top: 10px;
@@ -213,7 +217,7 @@ animation: myfirst 1s infinite linear;
 .iphone_pay_50{
     border: 0;
     border-radius: 4px;
-    width: 80%;
+    width: 70%;
     max-width: 300px;
     height: 60px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
