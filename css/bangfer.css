@@ -111,6 +111,7 @@ span.nt_time {
     color: #f0121a;
     font-weight: bolder;
     font-size: 22px;
+    margin-right: 20px;
 }
 .iphone_list_line>p.n_and_t {
     position: absolute;
