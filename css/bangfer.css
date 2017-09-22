@@ -83,18 +83,49 @@
     margin-left: 20px;
 }
 
+span.u_price {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: #f0121a;
+    font-weight: bold;
+    font-size: 16px;
+}
+span.nt_name {
+    margin-right: 5px;
+}
+span.nt_time {
+    color: #999;
+}
+.iphone_list_line>p.u_content {
+    margin: 0;
+    position: absolute;
+    left: 42px;
+    top: 18px;
+    font-size: 16px;
+    color: #696969;
+}
 
-
-
+.iphone_list_line>p.n_and_t {
+    position: absolute;
+    left: 42px;
+    top: 0px;
+    margin: 0;
+    font-size: 14px;
+}
 
 .iphone_list_line{
     width: 80%;
     max-width: 300px;
-    text-align:left;
+    text-align: left;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 .iphone_list_line>img{
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
 }
 .iphone_pay_50{
     border: 0;
