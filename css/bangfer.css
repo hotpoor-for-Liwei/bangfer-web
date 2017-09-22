@@ -29,9 +29,11 @@
 }
 #iphone_list_info{
     padding: 0 20px;
+    position: relative;
 }
 #iphone_list_info>span{
     position: absolute;
+    top: 2px;
     left: 80px;
     font-size: 18px;
     font-weight: bolder;
@@ -39,7 +41,7 @@
 #iphone_list_info>p{
     position: absolute;
     left: 80px;
-    top: 38px;
+    top: 12px;
     font-size: 16px;
     color: #999;
 }
