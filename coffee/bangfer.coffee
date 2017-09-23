@@ -174,20 +174,36 @@ bangfer_init = (bangfer_app)->
                         <button class="iphone_kan_btn"></button>
                     </div>
                     """
-                html = """
-                    <div id="iphone_list_info">
-                        <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
-                    </div>
-                    <div id="iphone_list_lines_top">砍价排行榜 <span class="iphone_kan_all">#{h_fee_all_price}</span></div>
-                    <div id="iphone_list_lines" align="center">
-                    #{h_m}
-                    </div>
-                    <div id="iphone_list_lines_bottom">#{iphone_list_lines_bottom_str}</div>
-                    <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
-                    <div class="img_plus_02"></div>
-                    <div class="img_plus_01"></div>
-                    #{h_kan}
-                """
+                if USER_ID == aim_ad_id
+                    html = """
+                        <div id="iphone_list_info">
+                            <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
+                        </div>
+                        <div id="iphone_list_lines_top">砍价排行榜 <span class="iphone_kan_all">#{h_fee_all_price}</span></div>
+                        <div id="iphone_list_lines" align="center">
+                        #{h_m}
+                        </div>
+                        <div id="iphone_list_lines_bottom">#{iphone_list_lines_bottom_str}</div>
+                        <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order" style="color:white;background:#4caf50;">预订成功！</div></a></div>
+                        <div class="img_plus_02"></div>
+                        <div class="img_plus_01"></div>
+                        #{h_kan}
+                    """
+                else
+                    html = """
+                        <div id="iphone_list_info">
+                            <img src="#{aim_ad_members[aim_ad_id]["headimgurl"]}" style="width:50px;height:50px;"><span>#{aim_ad_members[aim_ad_id]["name"]}</span><p>亲们，帮我一块砍价吧！</p>
+                        </div>
+                        <div id="iphone_list_lines_top">砍价排行榜 <span class="iphone_kan_all">#{h_fee_all_price}</span></div>
+                        <div id="iphone_list_lines" align="center">
+                        #{h_m}
+                        </div>
+                        <div id="iphone_list_lines_bottom">#{iphone_list_lines_bottom_str}</div>
+                        <div align="left"><a href="http://www.hotpoor.org/home/mmplus?user_id=f0d75199ce334fdaa2091df00a9e087b&aim_ad_id=#{USER_ID}"><div class="i_want_order">我也要预定</div></a></div>
+                        <div class="img_plus_02"></div>
+                        <div class="img_plus_01"></div>
+                        #{h_kan}
+                    """
             else
                 html = """
                     <div id="iphone_list">
